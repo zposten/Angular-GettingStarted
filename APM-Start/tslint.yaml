@@ -1,0 +1,61 @@
+extends:
+  - "tslint:recommended"
+  - "tslint-react"
+
+linterOptions:
+  exclude:
+    - "**/*.css"
+    - "**/*.scss"
+    - "**/*.html"
+    - "**/*.json"
+    - "**/*.scss.d.ts"
+    - "**/__snapshots__/*"
+
+defaultSeverity: "warning"
+
+rules:
+  max-line-length:
+    options: [120]
+  quotemark:
+    - true
+    - "single"
+  semicolon:
+    - true
+    - "never"
+  eofline: false
+  ordered-imports: false
+  object-literal-sort-keys: false
+  arrow-parens: false
+  jsx-boolean-value: false
+  jsx-no-multiline-js: false
+  member-ordering: false
+  interface-over-type-literal: false
+  one-line: false
+  curly: false
+  jsx-no-lambda: false
+  no-var-requires: false
+  typedef-whitespace: false
+  prefer-const: false
+  no-unused-variable: true
+  object-curly-spacing:
+    - true
+    - "never"
+
+jsRules:
+  max-line-length:
+    options: [120]
+  quotemark:
+    - true
+    - "single"
+    - "jsx-double"
+  semicolon:
+    - false
+  eofline: false
+  ordered-imports: false
+  object-literal-sort-keys: false
+  curly: false
+
+rulesDirectory:
+    - "node_modules/tslint-eslint-rules/dist/rules"
+
+autoFixOnSave: true
