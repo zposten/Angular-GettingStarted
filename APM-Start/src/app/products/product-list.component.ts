@@ -1,25 +1,29 @@
 import {Component} from '@angular/core'
-
-type Product = {
-  id: number,
-  name: string,
-  code: string,
-  releaseDate: string,
-  description: string,
-  price: number,
-  starRating: number,
-  imageUrl: string,
-}
+import {IProduct} from './product'
 
 @Component({
   selector: 'pm-products',
   templateUrl: './product-list.component.html',
+  styleUrls: ['./product-list.component.css'],
 })
 export class ProductListComponent {
   public areImagesShown = true
   public pageTitle = 'Product List'
-  public listFilter = ''
-  public products: Product[] = [
+
+  private _listFilter = '' // tslint:disable-line
+  get listFilter() {return this._listFilter}
+  set listFilter(filter) {
+    this._listFilter = filter
+    this.filteredProducts = this.products.filter(product => {
+      let vals = Object.values(product)
+      return vals.some(v => {
+        let s = v.toString()
+        return s.toLowerCase().includes(filter.toLowerCase())
+      })
+    })
+  }
+
+  public products: IProduct[] = [
     {
       id: 1,
       name: 'Leaf Rake',
@@ -71,6 +75,7 @@ export class ProductListComponent {
       imageUrl: 'https://openclipart.org/image/300px/svg_to_png/120337/xbox-controller_01.png',
     },
   ]
+  public filteredProducts: IProduct[] = this.products
 
   public handleShowImageClick() {
     this.areImagesShown = !this.areImagesShown
