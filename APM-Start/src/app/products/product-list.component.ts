@@ -16,6 +16,7 @@ type Product = {
   templateUrl: './product-list.component.html',
 })
 export class ProductListComponent {
+  areImagesShown = true
   pageTitle = 'Product List'
   products: Product[] = [
     {
@@ -69,4 +70,8 @@ export class ProductListComponent {
       imageUrl: "https://openclipart.org/image/300px/svg_to_png/120337/xbox-controller_01.png"
     }
   ]
+
+  handleShowImageClick() {
+    this.areImagesShown = !this.areImagesShown
+  }
 }

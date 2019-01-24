@@ -24,8 +24,8 @@
     <thead>
       <tr>
         <th>
-          <button class="btn btn-primary">
-            Show image
+          <button class="btn btn-primary" (click)='handleShowImageClick()'>
+            {{areImagesShown ? 'Hide images' : 'Show images'}}
           </button>
         </th>
         <th>Product</th>
@@ -39,6 +39,7 @@
     <tr *ngFor='let product of products'>
       <td>
         <img
+          *ngIf='areImagesShown'
           [src]='product.imageUrl'
           [title]='product.name'
           [style.width.px]=50
