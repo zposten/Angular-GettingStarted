@@ -1,11 +1,10 @@
-<div class="crop"
-     [style.width.px]="starWidth"
-     [title]="rating">
-  <div style="width: 75px">
-    <span class="fa fa-star"></span>
-    <span class="fa fa-star"></span>
-    <span class="fa fa-star"></span>
-    <span class="fa fa-star"></span>
-    <span class="fa fa-star"></span>
+<div class='crop'
+     [style.width.px]='starsWidth'
+     [title]='rating'>
+  <div [style.width.px]='fullWidth'>
+    <span
+      *ngFor='let i of rating|times'
+      class='fa fa-star'
+    ></span>
   </div>
 </div>
