@@ -9,6 +9,7 @@ import {ProductListComponent} from './products/product-list.component'
 import {ConvertCharToSpacePipe} from './util/convertCharToSpacePipe'
 import {StarComponent} from './shared/star.component'
 import {TimesPipe} from './util/timesPipe'
+import {ProductDetailComponent} from './products/product-detail.component'
 import {WelcomeComponent} from './home/welcome.component'
 
 @NgModule({
@@ -18,6 +19,7 @@ import {WelcomeComponent} from './home/welcome.component'
     StarComponent,
     ConvertCharToSpacePipe,
     TimesPipe,
+    ProductDetailComponent,
     WelcomeComponent,
   ],
   imports: [
@@ -26,6 +28,7 @@ import {WelcomeComponent} from './home/welcome.component'
     HttpClientModule,
     RouterModule.forRoot([
       {path: 'products', component: ProductListComponent},
+      {path: 'products/:id', component: ProductDetailComponent},
       {path: 'welcome', component: WelcomeComponent},
       {path: '', redirectTo: 'welcome', pathMatch: 'full'},
       {path: '**', redirectTo: 'welcome'},
