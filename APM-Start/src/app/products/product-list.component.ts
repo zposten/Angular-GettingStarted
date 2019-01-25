@@ -80,4 +80,8 @@ export class ProductListComponent {
   public handleShowImageClick() {
     this.areImagesShown = !this.areImagesShown
   }
+
+  public handleStarClick(rating: string) {
+    this.pageTitle = 'Product list: ' + rating
+  }
 }

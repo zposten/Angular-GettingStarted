@@ -1,6 +1,8 @@
 <div class='crop'
      [style.width.px]='starsWidth'
-     [title]='rating'>
+     [title]='rating'
+     (click)='onClick()'
+     >
   <div [style.width.px]='fullWidth'>
     <span
       *ngFor='let i of rating|times'
