@@ -11,7 +11,9 @@ export class ProductListComponent implements OnInit {
   public areImagesShown = true
   public pageTitle = 'Product List'
   public products: IProduct[]
-  public filteredProducts: IProduct[]
+  public filteredProducts: IProduct[] = []
+
+  private errorMessage: string
 
   constructor(private productService: ProductService) {}
 
@@ -33,11 +35,18 @@ export class ProductListComponent implements OnInit {
   }
 
   public handleStarClick(rating: string) {
-    this.pageTitle = 'Product list: ' + rating
+    this.pageTitle = 'Product List: ' + rating
   }
 
   public ngOnInit() {
-    this.products = this.productService.getProducts()
-    this.filteredProducts = this.products
+    this.productService
+      .getProducts()
+      .subscribe(
+        products => {
+          this.products = products
+          this.filteredProducts = products
+        },
+        error => this.errorMessage = error,
+      )
   }
 }
