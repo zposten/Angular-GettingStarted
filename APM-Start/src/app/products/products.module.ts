@@ -1,26 +1,18 @@
 import {NgModule} from '@angular/core'
-import {CommonModule} from '@angular/common'
 import {RouterModule} from '@angular/router'
-import {FormsModule} from '@angular/forms'
 
 import {ProductListComponent} from './product-list.component'
-import {TimesPipe} from '../util/timesPipe'
-import {ConvertCharToSpacePipe} from '../util/convertCharToSpacePipe'
 import {ProductDetailComponent} from './product-detail.component'
 import {ProductDetailGuard} from './product-detail.guard'
-import {StarComponent} from '../shared/star.component'
+import {SharedModule} from '../shared/shared.module'
 
 @NgModule({
   declarations: [
     ProductListComponent,
-    TimesPipe,
-    ConvertCharToSpacePipe,
-    StarComponent,
     ProductDetailComponent,
   ],
   imports: [
-    CommonModule,
-    FormsModule,
+    SharedModule,
     RouterModule.forChild([
       {
         path: 'products',
